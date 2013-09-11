@@ -1,0 +1,159 @@
+Challenge 3
+Section 1.
+1.3 It's important because as someone progresses as a developer they will probably see programs written in the older versions of Xcode and objective-C, and they will need to know what those older programs are saying even if some of the code it uses is no longer standard.  Since Apple frequently updates Xcode, it is important to know what they are updating and how it is used so that you know what you are doing when you work with Xcode.
+
+Section 2
+2.1
+NeXT computers adopted Objective-C and was eventually bought by Apple.  Apple then used Objective-C in their operating systems and then eventually used Objective-C as their iPhone and iPad programming languages.
+
+2.3:	If an iOs upgrade is coming up, like iOs 7, and you have the iOs 7 beta on your phone, you might build and test in iOs 7 so that when iOs 7 is released your app is compatible with it, but until it is released you deploy your app on older versions of iOs so that other people can use it.
+
+Section3
+3.4
+2 min 17 seconds
+
+3.5
+1. Arithmetic: + - * / += -+ *= /= they are used to do basic arithmetic functions on variables, like adding 10 to a variable.
+2. Comparison: if (a == b) {…, !=, >, <, >=, <=, all of these compare two variables and then return a true or false
+3. Logical And/Or: if (a == b && c == d), ||, checks to see if a is equal to b and c is equal to d, or the || checks to see if either is true
+4. Moduls: int year = 2003;
+	    int remainder =  year % 4; gives you the remainder of the operation
+5. Increment/Decrement: a++, ++a, a--, --a, these keep adding one or keep subtracting one from a
+6. Ternary: condition ? true : false, this is like an if/else statement, it can replace an if/else statement
+
+3.6
+Maybe you want to  make a calendar scheduling app that goes through your schedule and finds open spots to schedule meetings, and when this app finds a closed spot, instead of proceeding through it's loop and asking you if you want to schedule a meeting during your full time, it just continues on the the next time slot.
+
+3.7
+A function is a chunk of related code that is put in curly braces and given a name.  Functions allow you to reuse code without having to rewrite the whole thing every time.  A function prototype is a description that the function exists that has nothing in the body.  Function prototypes allow the program to know that a certain function exists and that it can compile.  To create a function, you give it a name, parameters, and a return type.  You use it when you want to reuse code
+
+Section 4 - Variables
+4.1
+The primitive data types are int, float, double, char, and BOOL.  They did it to make it easier to work with different types of data.
+
+4.2 - 4.3
+Primitive Data Types
+----------------------------------------------------------|    |---------------------------------------------------------|
+| int       | stores a number that is not a decimal       |----| unsigned  | an unsigned int stores a nonnegative number |
+|---------------------------------------------------------|    |---------------------------------------------------------|
+| float     | stores a number with a decimal  	          |    | long      | long int stores much more in 64-bit systems |
+|---------------------------------------------------------|    |---------------------------------------------------------|
+| double    | stores numbers twice as big as a float      |    | long long | stores 8 bytes in both 32 and 64bit systems |
+| --------------------------------------------------------|    |---------------------------------------------------------|
+| char	    | stores one character		          |
+|---------------------------------------------------------|
+| BOOL      | stores a YES or NO		          |
+|---------------------------------------------------------|
+
+4.4
+The scope of a variable is where that variable can be used within the program.  Local variables will only be available within the function it is defined in.  If you create a global variable, it is available throughout the program.
+
+4.5
+Enum allows you to define a range of values so that you can limit the values that someone can enter.
+
+4.6
+You would define your own data type when you want to reuse something like an enum a bunch of different times.  It would save you the time of retyping your enum code every time.
+
+4.7
+#import is used to include the content of a separate file in the one you're putting it in.  You'd use it to import things like new classes that you create. #define allows you to create macros that are fixed values.  You can then use those macros anywhere in your code.  You'd use it to define a certain number that is constant and then use it throughout your code. #if  can be used to ask if a certain condition is true before the program runs. You could use it to see if you are in debug mode.  If the conditions of the #if are satisfied, it will run whatever is after it during the debug mode.  
+
+4.8
+NSString *message = @"This is a string in Objective-C!";
+NSString is the object type. * points to a place in memory.  message is the instance name.  @ says that the following is a string.  The text between the "  " is the content of the string.
+printf("This is a string in C!");
+printf says to print a string.  The characters between the (" ") are the contents of the string.
+
+Section 5 - Classes
+5.2
+A pointer points to a space in memory where the object exists.  When you declare a pointer, it sets aside some memory for that object.  A pointer is different than a primitive in that the things which it points to is usually more complex and takes up more memory than a primitive.
+
+5.3
+When you call a method in objective-C, you use [object method];
+It can be seen as an advantage because it is very obvious where the method calls are.
+
+5.4
+Class methods are called on classes and have a + in the documentation.  Instance methods are called on the instances of a class and have a - in the documentation.  
+
+Section 6 - Memory Management
+6.2
+When you create a pointer to an object, a certain amount of memory is set aside for that object.  When the pointer is "owned," that memory is active and is taking up space in the program.  Until that pointer is "released," it will continue to use up the memory that is has allocated for it's object.  When it is released, the memory that was set aside will be released and it will use less RAM.  I think it's similar to a kid and their parents.  As long as the parents "own" their kid, until he's 18 or 22 or whatever they decide, the kid will continue to use up their resources.  Once they "release" their kid into the real world, he will stop using their resources.  If a couple has a bunch of kids and never releases them, eventually they may run out of money because their 30 year-old kids who now have their own families will be taking all their parents money.  It will cause the whole family to "crash."
+
+6.3
+"New" creates a new instance of a class.  We avoid using it because many of the classes take special "init" methods that allow you to add things to your object.  Just using "new" doesn't allow you to do that.  The object's lifetime occurs from when it is created until when it is released.
+
+6.4
+When you call autorelease, it adds an object to the autorelease pool with other objects.  Later in the program, when you call [pool drain], all the objects in the pool are drained.  You can use autorelease when you write a method that creates and returns an object and when you can't call release on that object right away.  Instead, you call an autorelease and later on it will be released.
+
+6.5
+NARC stands for New Alloc Retain and Copy.  It means that you call release only on things that you call NARC on.  If you don't call NARC on something, you don't call for it's release.  It's important to remember this because it will help you to remember what is your responsibility to release and what isn't.
+
+6.6
+It saves us from having to write release and retain calls.  It does this by automatically going through the program and release and retaining things when it needs to.
+
+6.7
+ARC is done at compile time while garbage collection is done at run time.  Garbage collection can happen at any time during run time, which can slow an app down.  ARC is advantageous because it doesn't slow the app down.
+
+6.8
+You can't release or dealloc memory because ARC does it for you.  If you were to do those things, Xcode will tell you that they are not allowed.
+
+Section 7 - Custom Classes
+7.1
+The two different sections are the interface file ".h" and the implementation file ".m" .  The interface contains the properties and methods that the class has and are placed in the .h file.  \
+
+7.2
+The contents of the tweet should be passed in when you are setting "aTweet".  When you run "printTweet", it should return the contents of "aTweet".
+
+7.3
+Before 2012, you had to create the instance variable in the interface file, and then you'd have to create the getter and setter methods for that variable underneath where you declared it.  Then, in the implementation file, you'd have to provide the implementation for those methods.  Now, you just declare a property, and the getter and setter methods are generated automatically.  It is easier to do this because you have to write a lot less code. What got obscured is what is happening behind the scenes.  You still need to understand that the setters and getters are being declared, it's just doing it automatically now.
+
+7.4
+Initializers allow you to start working with a instance that you have "alloc"ed.  Custom initializers initialize a class with data already in the instance variable.  It can set int, names, formats, etc.  When you do this, it saves you time writing code because what could have been multiple lines of code is now only one line.  You'd use the standard initializer when you are creating a simple NSString.  You really don't need to do any special formatting or add special objects, so the regular init method will work.  You can do a custom init when you create a new class and want to initialize it with certain objects that are special to that class.
+
+7.5
+In a class, you might need an object to be deallocated before an object is destroyed.  This can happen when you are connected to a database or other external data source.  Because of this, you can write a dealloc method within a class, but it will be called automatically.
+
+Section 8 - Collections
+8.1
+The first constraint is no bounds checking.  This means you shouldn't try to access an element that doesn't exist.  The second is fixed size.  Once you create a C style array, the size is fixed.  The third is don't mix types.  You should have arrays made of the same things, not mixed variables.
+
+8.2
+A mutable array can have objects added and subtracted from it.  An immutable array is fixed once it is created.
+
+Section 9 -File Management
+9.1
+You can copy items, move items, check if a file exists, check the attributes of an item, and remove items.  
+
+9.2
+There is the scheme (http), domain(www.website.com), and path(/blablabla.img).  NSURL's are faster than string paths, can trap errors, and are used by more classes.
+
+9.3
+You would want to do that if you want to save the string when you close your application.  For example, if you're creating a note application, you'd want to save your notes on the disk so that they are available when you close your application.
+
+9.4
+If you have a bunch of information, it is easier and faster to just archive the object without changing it into a bunch of individual strings.
+
+
+Section 10 - More Complex Classes
+10.1
+To see what you're inheriting from a super class, you can look at the super class's reference page and see what methods and properties it has.  You're new class will inherit all of those.  To override a method, you write what you would to create a new method, except you use the method you want to overwrite and then write what you want to change:
+-(SomeClass *)someMethod {
+	//Write what you want to change
+}
+
+10.2
+Inheritance is when a subclass "inherits" methods and properties from its superclass.  Categories allow you to add a method to a class without creating a subclass.  The limitation is that you can't add instance variables, just methods.
+
+10.3
+A protocol is a list of methods you want an object to perform.  They are useful because as long as you conform to the protocol, you can do whatever the protocol does. You can standardize the interaction among objects, so it doesn't matter what class you are using as long as you conform to the protocol.
+ 
+10.
+The advantages of dynamic typing is that it allows you to create methods that can be run by any object.  This is very useful when you are importing a bunch of data and you don't know which of those objects need to run your method and which don't.  The disadvantage is that even if an object can not call a certain method, when you use dynamic typing the program will not show an error message but will compile and then crash.
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Hurricans' target in the 'Hurricans' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
